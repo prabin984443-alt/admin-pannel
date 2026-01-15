@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Real Elymind DB</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Elymind Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <style> 
+        body { background: #121212; padding-bottom:0; } 
+        .admin-section { display:none; max-width: 800px; margin: 30px auto; } 
+        .active-section { display:block; } 
+        input, select, textarea { background: #222; color: white; border: 1px solid #444; }
+        .data-row { background:#333; padding:10px; margin-bottom:5px; font-size:0.9rem; border-left: 3px solid #777; display: flex; justify-content: space-between; align-items: center; }
+    </style>
+</head>
+<body class="admin-body">
+
+    <nav class="admin-nav" style="background:#1f1f1f; padding:15px; display:flex; gap:10px; border-bottom:1px solid #333;">
+        <h3 style="color:white; margin-right:auto;">Elymind Admin</h3>
+        <button onclick="show('fire')" style="background:#333; color:white; padding:10px 20px;">🔥 Quests</button>
+        <button onclick="show('water')" style="background:#333; color:white; padding:10px 20px;">🌊 Music</button>
+        <button onclick="show('data')" style="background:#333; color:white; padding:10px 20px;">📊 Data Hub</button>
+    </nav>
+
+    <div id="fire" class="admin-section active-section">
+        <h3 style="color:#ff512f;">Add New Quest</h3>
+        <input type="text" id="q-text" placeholder="Quest Title">
+        <textarea id="q-tip" rows="2" placeholder="Pro Tip (e.g. Drink water before starting)"></textarea>
+        <select id="q-cat">
+            <option value="Physical">💪 Physical</option>
+            <option value="Mental">🧠 Mental</option>
+            <option value="Academic">📚 Academic</option>
+            <option value="Social">🤝 Social</option>
+        </select>
+        <button onclick="addQuest()" style="width:100%; background:#ff512f; color:white; padding:15px; margin-top:10px;">Add Quest</button>
+        <h4 style="margin-top:30px; color:#aaa;">Active Quests</h4>
+        <div id="q-list" style="margin-top:10px; color:white;"></div>
+    </div>
+
+    <div id="water" class="admin-section">
+        <h3 style="color:#2193b0;">Add Soundscape</h3>
+        <input type="text" id="s-name" placeholder="Track Name">
+        <input type="text" id="s-url" placeholder="MP3 URL">
+        <select id="s-mood">
+            <option value="focus">Focus</option>
+            <option value="anxiety">Anxiety</option>
+            <option value="sleep">Sleep</option>
+            <option value="energy">Energy</option>
+            <option value="sadness">Sadness</option>
+            <option value="calm">Calm</option>
+            <option value="anger">Anger</option>
+        </select>
+        <button onclick="addSound()" style="width:100%; background:#2193b0; color:white; padding:15px; margin-top:10px;">Add Sound</button>
+        <h4 style="margin-top:30px; color:#aaa;">Music Library (All Tracks)</h4>
+        <div id="s-list" style="margin-top:10px; color:white;"></div>
+    </div>
+
+    <div id="data" class="admin-section">
+        <h3 style="color:#ddd;">Data Hub</h3>
+        <button onclick="loadData()" style="padding:10px; background:#555; color:white; width:100%; margin-bottom:20px;">🔄 Refresh Logs</button>
+        
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+            <div>
+                <h4 style="color:#81d4fa;">Breathing Sessions</h4>
+                <div id="log-breath" style="height:300px; overflow-y:auto; background:#222; padding:10px;"></div>
+            </div>
+            <div>
+                <h4 style="color:#81c784;">Tasks Scheduled</h4>
+                <div id="log-schedule" style="height:300px; overflow-y:auto; background:#222; padding:10px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
